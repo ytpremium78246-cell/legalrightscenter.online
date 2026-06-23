@@ -47,7 +47,7 @@
 
 /* ── RESET ──────────────────────────────────────────── */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-html { scroll-behavior: smooth; font-size: 16px; }
+html { scroll-behavior: smooth; font-size: 16px; max-width: 100%; overflow-x: clip; }
 [id] { scroll-margin-top: 120px; }
 body {
   font-family: var(--font-sans);
@@ -55,6 +55,8 @@ body {
   background: var(--white);
   line-height: 1.7;
   -webkit-font-smoothing: antialiased;
+  max-width: 100%;
+  overflow-x: clip;
 }
 a { color: var(--sky-deep); text-decoration: none; }
 a:hover { color: var(--sky-mid); text-decoration: underline; }
@@ -528,7 +530,14 @@ input[type="range"] { accent-color: var(--sky-deep); height: 6px; width: 100%; m
 .footer-grid { display: grid; grid-template-columns: 1.8fr 1fr 1fr 1fr 1fr; gap: 40px; margin-bottom: 48px; }
 .footer-brand .logo-text { color: var(--sky-deep); margin-bottom: 12px; display: block; font-weight: 800; font-size: 1.15rem; }
 .footer-brand p { font-size: .88rem; color: var(--ink-light); line-height: 1.65; margin-bottom: 16px; }
-.footer-badge { font-size: .78rem; color: var(--muted); font-weight: 600; }
+.footer-badge {
+  font-size: .78rem;
+  color: var(--muted);
+  font-weight: 600;
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: 4px 12px;
+}
 .footer-col h5 { font-size: .8rem; text-transform: uppercase; letter-spacing: .1em; color: var(--sky-deep); margin-bottom: 14px; font-weight: 800; }
 .footer-col a  { display: block; font-size: .88rem; color: var(--ink-mid); margin-bottom: 8px; transition: color .15s; font-weight: 600; }
 .footer-col a:hover { color: var(--sky-mid); text-decoration: underline; }
@@ -619,6 +628,13 @@ input[type="range"] { accent-color: var(--sky-deep); height: 6px; width: 100%; m
   .footer-grid { grid-template-columns: 1fr; }
   .section { padding: 48px 0; }
   .stat-grid { grid-template-columns: 1fr 1fr; }
+  .disclaimer-sticky {
+    border-radius: var(--radius-md) !important;
+    bottom: 12px !important;
+    padding: 10px 16px !important;
+    font-size: .75rem !important;
+    max-width: 95vw !important;
+  }
 }
 @media (max-width: 480px) {
   .stat-grid { grid-template-columns: 1fr; }
