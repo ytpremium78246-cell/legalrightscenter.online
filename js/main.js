@@ -24,6 +24,10 @@ document.addEventListener('DOMContentLoaded', () => {
       spans[0].style.transform = navLinks.classList.contains('open') ? 'rotate(45deg) translate(5px,5px)' : '';
       spans[1].style.opacity   = navLinks.classList.contains('open') ? '0' : '1';
       spans[2].style.transform = navLinks.classList.contains('open') ? 'rotate(-45deg) translate(5px,-5px)' : '';
+      // Close all dropdowns if nav menu is closed
+      if (!navLinks.classList.contains('open')) {
+        document.querySelectorAll('.nav-dropdown').forEach(d => d.classList.remove('open'));
+      }
     });
   }
 
@@ -77,16 +81,51 @@ document.addEventListener('DOMContentLoaded', () => {
   const header = document.querySelector('.site-header');
   if (header) {
     window.addEventListener('scroll', () => {
-      header.style.boxShadow = window.scrollY > 20 ? '0 4px 32px rgba(0,0,0,.4)' : '0 4px 24px rgba(0,0,0,.3)';
+      header.style.boxShadow = window.scrollY > 20 ? '0 4px 20px rgba(14,165,233,.15)' : '0 2px 15px rgba(14,165,233,.1)';
     });
   }
 
   /* ── ACTIVE NAV LINK ───────────────────────────────── */
-  const path = window.location.pathname;
+  const pathname = window.location.pathname;
+  let filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+  if (filename === '') filename = 'index.html';
+
   document.querySelectorAll('.nav-links a').forEach(a => {
-    if (a.getAttribute('href') === path || a.getAttribute('href') === path.replace('/index.html','')) {
-      a.style.color = 'var(--gold-light)';
+    const href = a.getAttribute('href');
+    if (href === filename || (filename === 'index.html' && href === '')) {
+      a.classList.add('active');
+      // Highlight parent dropdown if active link is nested
+      const dropdown = a.closest('.nav-dropdown');
+      if (dropdown) {
+        const toggle = dropdown.querySelector('.nav-dropdown-toggle');
+        if (toggle) toggle.classList.add('active');
+      }
     }
+  });
+
+  /* ── MOBILE DROPDOWNS ──────────────────────────────── */
+  document.querySelectorAll('.nav-dropdown-toggle').forEach(toggle => {
+    toggle.addEventListener('click', (e) => {
+      if (window.innerWidth <= 1200) {
+        const parent = toggle.closest('.nav-dropdown');
+        if (parent) {
+          e.preventDefault();
+          e.stopPropagation();
+          const isOpen = parent.classList.contains('open');
+          
+          // Close all other dropdowns
+          document.querySelectorAll('.nav-dropdown').forEach(d => {
+            if (d !== parent) d.classList.remove('open');
+          });
+          
+          if (isOpen) {
+            parent.classList.remove('open');
+          } else {
+            parent.classList.add('open');
+          }
+        }
+      }
+    });
   });
 });
 
