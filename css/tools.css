@@ -1,0 +1,150 @@
+/* =========================================================
+   TOOL-SPECIFIC STYLES — calculators, checklists, forms
+   Theme: Sky Blue + White + Deep Black text
+   ========================================================= */
+
+/* ── CALCULATOR ──────────────────────────────────────────── */
+.calc-wrap {
+  background: var(--white);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-lg);
+  overflow: hidden;
+  border: 2px solid var(--border);
+}
+.calc-header {
+  background: linear-gradient(135deg, var(--sky-pale), var(--sky-ultrapal));
+  padding: 36px 40px;
+  border-bottom: 2px solid var(--border-dark);
+}
+.calc-header h2 { color: var(--sky-deep); margin-bottom: 8px; font-weight: 800; }
+.calc-header p { color: var(--muted); margin: 0; font-size: .92rem; font-weight: 500; }
+.calc-body { padding: 40px; }
+.calc-section { margin-bottom: 36px; }
+.calc-section-title {
+  font-size: .85rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .08em;
+  color: var(--muted-light);
+  margin-bottom: 16px;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 8px;
+}
+.form-group { margin-bottom: 20px; }
+.form-group label { display: block; font-size: .88rem; font-weight: 700; color: var(--ink); margin-bottom: 6px; }
+.form-group label .hint { font-weight: 400; color: var(--muted); font-size: .8rem; margin-left: 4px; }
+.form-control {
+  width: 100%; padding: 12px 16px;
+  border: 2px solid var(--border); border-radius: var(--radius-md);
+  font-size: .95rem; font-family: var(--font-sans); color: var(--ink);
+  background: var(--white); transition: all .2s; outline: none;
+}
+.form-control:focus { border-color: var(--sky-deep); box-shadow: 0 0 0 3px rgba(14, 165, 233, 0.15); }
+.form-control[type=range] { padding: 8px 0; border: none; accent-color: var(--sky); }
+.range-display { font-size: 1.4rem; font-weight: 700; color: var(--sky-deep); text-align: center; margin-top: 6px; }
+.input-prefix-wrap { position: relative; }
+.input-prefix { position: absolute; left: 14px; top: 50%; transform: translateY(-50%); color: var(--muted-light); font-weight: 600; }
+.input-prefix-wrap .form-control { padding-left: 32px; }
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.calc-result {
+  background: linear-gradient(135deg, var(--sky-ultrapal), var(--sky-pale));
+  border-radius: var(--radius-lg); padding: 36px; text-align: center;
+  border: 2px solid var(--border-dark);
+  box-shadow: var(--shadow-md);
+}
+.calc-result .result-label { color: var(--muted); font-size: .82rem; text-transform: uppercase; letter-spacing: .08em; margin-bottom: 8px; font-weight: 700; }
+.calc-result .result-value { font-size: 3rem; font-weight: 800; color: var(--sky-deep); font-family: var(--font-sans); line-height: 1; margin-bottom: 8px; }
+.calc-result .result-range { color: var(--muted-light); font-size: .85rem; margin-bottom: 20px; font-weight: 600; }
+.calc-result .result-note {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 14px; font-size: .8rem; color: var(--ink-light); text-align: left;
+  line-height: 1.6;
+}
+.methodology-box {
+  background: var(--sky-ultrapal);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 20px; margin-top: 24px;
+  font-size: .82rem; color: var(--muted);
+  line-height: 1.6;
+}
+.methodology-box strong { color: var(--sky-deep); }
+
+/* ── ELIGIBILITY CHECKLIST ───────────────────────────────── */
+.eligibility-wrap { max-width: 760px; margin: 0 auto; }
+.elig-step {
+  background: var(--white);
+  border: 2px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 28px; margin-bottom: 16px;
+  transition: all .2s;
+}
+.elig-step.answered { border-color: var(--sky-light); background: var(--sky-ultrapal); }
+.elig-step-num { font-size: .75rem; font-weight: 700; color: var(--sky-deep); text-transform: uppercase; letter-spacing: .08em; margin-bottom: 8px; }
+.elig-step h4 { font-family: var(--font-sans); font-size: 1rem; margin-bottom: 16px; color: var(--ink); }
+.elig-options { display: flex; gap: 12px; flex-wrap: wrap; }
+.elig-btn {
+  padding: 10px 22px; border-radius: 100px;
+  border: 2px solid var(--border); background: var(--white);
+  font-size: .9rem; font-weight: 600; cursor: pointer; transition: all .2s;
+  font-family: var(--font-sans); color: var(--ink-mid);
+}
+.elig-btn:hover { border-color: var(--sky); color: var(--sky-deep); background: var(--sky-ultrapal); }
+.elig-btn.selected-yes { background: rgba(16, 185, 129, 0.1); border-color: var(--green); color: #065f46; }
+.elig-btn.selected-no { background: rgba(239, 68, 68, 0.08); border-color: var(--red); color: #991b1b; }
+.elig-result {
+  background: linear-gradient(135deg, var(--sky-ultrapal), var(--sky-pale));
+  border: 2px solid var(--border-dark);
+  border-radius: var(--radius-xl); padding: 48px; text-align: center; display: none;
+  box-shadow: var(--shadow-lg);
+}
+.elig-result.show { display: block; }
+.elig-result h3 { color: var(--sky-deep); font-size: 1.6rem; margin-bottom: 12px; font-weight: 800; }
+.elig-result p { color: var(--ink-light); margin-bottom: 28px; font-weight: 500; }
+.elig-score-ring {
+  width: 100px; height: 100px; border-radius: 50%;
+  background: var(--white); border: 4px solid var(--sky-light);
+  display: flex; align-items: center; justify-content: center; margin: 0 auto 24px;
+  font-size: 2rem; font-weight: 800; color: var(--sky-deep); font-family: var(--font-sans);
+  box-shadow: var(--shadow-sm);
+}
+
+/* ── CONTACT FORM ────────────────────────────────────────── */
+.contact-form {
+  background: var(--white);
+  border-radius: var(--radius-xl);
+  padding: 40px;
+  box-shadow: var(--shadow-lg);
+  border: 2px solid var(--border);
+}
+.contact-form h3 { margin-bottom: 8px; color: var(--sky-deep); font-weight: 800; }
+.contact-form .form-note { color: var(--muted); font-size: .85rem; margin-bottom: 28px; }
+.form-submit-btn {
+  width: 100%; padding: 16px; font-size: 1rem; font-weight: 700;
+  background: linear-gradient(135deg, var(--sky), var(--sky-deep));
+  color: var(--white); border: none; border-radius: var(--radius-md);
+  cursor: pointer; font-family: var(--font-sans); transition: all .2s;
+  box-shadow: 0 4px 12px rgba(14, 165, 233, 0.25);
+}
+.form-submit-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(14, 165, 233, 0.4);
+}
+.form-success {
+  background: rgba(16, 185, 129, 0.08);
+  border: 2px solid var(--green);
+  border-radius: var(--radius-md);
+  padding: 20px; text-align: center; display: none;
+}
+.form-success h4 { color: #065f46; margin-bottom: 8px; font-weight: 800; }
+.form-success p { color: var(--muted); font-size: .9rem; margin: 0; }
+
+/* ── RESPONSIVE TOOLS ────────────────────────────────────── */
+@media (max-width:768px) {
+  .calc-body { padding: 24px; }
+  .calc-header { padding: 28px 24px; }
+  .form-row { grid-template-columns: 1fr; }
+  .calc-result .result-value { font-size: 2.2rem; }
+}
